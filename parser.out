@@ -1,0 +1,1611 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    BOOL
+    DEF
+    DIVIDE
+    ELSE
+    FLOAT
+    MAIN
+    MINUS
+    NAMESPACE
+    NEW
+    PLUS
+    RETURN
+    TIMES
+    USING
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> statement program
+Rule 2     program -> empty
+Rule 3     statement -> CLASS IDENTIFIER LBRACE program RBRACE
+Rule 4     statement -> function
+Rule 5     statement -> if_statement
+Rule 6     statement -> for_loop
+Rule 7     statement -> while_loop
+Rule 8     statement -> foreach_loop
+Rule 9     statement -> try_catch
+Rule 10    statement -> assignment
+Rule 11    statement -> method_call
+Rule 12    statement -> variable_declaration
+Rule 13    function -> PUBLIC STATIC VOID IDENTIFIER LPAREN RPAREN LBRACE program RBRACE
+Rule 14    variable_declaration -> INT IDENTIFIER ASSIGN NUMBER SEMICOLON
+Rule 15    variable_declaration -> DOUBLE IDENTIFIER ASSIGN NUMBER SEMICOLON
+Rule 16    variable_declaration -> STRING IDENTIFIER ASSIGN STRING_LITERAL SEMICOLON
+Rule 17    if_statement -> IF LPAREN IDENTIFIER RPAREN LBRACE program RBRACE
+Rule 18    for_loop -> FOR LPAREN assignment SEMICOLON IDENTIFIER SEMICOLON IDENTIFIER RPAREN LBRACE program RBRACE
+Rule 19    while_loop -> WHILE LPAREN IDENTIFIER RPAREN LBRACE program RBRACE
+Rule 20    foreach_loop -> FOREACH LPAREN IDENTIFIER IDENTIFIER IDENTIFIER RPAREN LBRACE program RBRACE
+Rule 21    try_catch -> TRY LBRACE program RBRACE CATCH LBRACE program RBRACE FINALLY LBRACE program RBRACE
+Rule 22    assignment -> IDENTIFIER ASSIGN NUMBER SEMICOLON
+Rule 23    method_call -> CONSOLE DOT WRITE LPAREN STRING_LITERAL RPAREN SEMICOLON
+Rule 24    empty -> <empty>
+
+Terminals, with rules where they appear
+
+ASSIGN               : 14 15 16 22
+BOOL                 : 
+CATCH                : 21
+CLASS                : 3
+CONSOLE              : 23
+DEF                  : 
+DIVIDE               : 
+DOT                  : 23
+DOUBLE               : 15
+ELSE                 : 
+FINALLY              : 21
+FLOAT                : 
+FOR                  : 18
+FOREACH              : 20
+IDENTIFIER           : 3 13 14 15 16 17 18 18 19 20 20 20 22
+IF                   : 17
+INT                  : 14
+LBRACE               : 3 13 17 18 19 20 21 21 21
+LPAREN               : 13 17 18 19 20 23
+MAIN                 : 
+MINUS                : 
+NAMESPACE            : 
+NEW                  : 
+NUMBER               : 14 15 22
+PLUS                 : 
+PUBLIC               : 13
+RBRACE               : 3 13 17 18 19 20 21 21 21
+RETURN               : 
+RPAREN               : 13 17 18 19 20 23
+SEMICOLON            : 14 15 16 18 18 22 23
+STATIC               : 13
+STRING               : 16
+STRING_LITERAL       : 16 23
+TIMES                : 
+TRY                  : 21
+USING                : 
+VOID                 : 13
+WHILE                : 19
+WRITE                : 23
+error                : 
+
+Nonterminals, with rules where they appear
+
+assignment           : 10 18
+empty                : 2
+for_loop             : 6
+foreach_loop         : 8
+function             : 4
+if_statement         : 5
+method_call          : 11
+program              : 1 3 13 17 18 19 20 21 21 21 0
+statement            : 1
+try_catch            : 9
+variable_declaration : 12
+while_loop           : 7
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . program
+    (1) program -> . statement program
+    (2) program -> . empty
+    (3) statement -> . CLASS IDENTIFIER LBRACE program RBRACE
+    (4) statement -> . function
+    (5) statement -> . if_statement
+    (6) statement -> . for_loop
+    (7) statement -> . while_loop
+    (8) statement -> . foreach_loop
+    (9) statement -> . try_catch
+    (10) statement -> . assignment
+    (11) statement -> . method_call
+    (12) statement -> . variable_declaration
+    (24) empty -> .
+    (13) function -> . PUBLIC STATIC VOID IDENTIFIER LPAREN RPAREN LBRACE program RBRACE
+    (17) if_statement -> . IF LPAREN IDENTIFIER RPAREN LBRACE program RBRACE
+    (18) for_loop -> . FOR LPAREN assignment SEMICOLON IDENTIFIER SEMICOLON IDENTIFIER RPAREN LBRACE program RBRACE
+    (19) while_loop -> . WHILE LPAREN IDENTIFIER RPAREN LBRACE program RBRACE
+    (20) foreach_loop -> . FOREACH LPAREN IDENTIFIER IDENTIFIER IDENTIFIER RPAREN LBRACE program RBRACE
+    (21) try_catch -> . TRY LBRACE program RBRACE CATCH LBRACE program RBRACE FINALLY LBRACE program RBRACE
+    (22) assignment -> . IDENTIFIER ASSIGN NUMBER SEMICOLON
+    (23) method_call -> . CONSOLE DOT WRITE LPAREN STRING_LITERAL RPAREN SEMICOLON
+    (14) variable_declaration -> . INT IDENTIFIER ASSIGN NUMBER SEMICOLON
+    (15) variable_declaration -> . DOUBLE IDENTIFIER ASSIGN NUMBER SEMICOLON
+    (16) variable_declaration -> . STRING IDENTIFIER ASSIGN STRING_LITERAL SEMICOLON
+
+    CLASS           shift and go to state 4
+    $end            reduce using rule 24 (empty -> .)
+    PUBLIC          shift and go to state 15
+    IF              shift and go to state 16
+    FOR             shift and go to state 17
+    WHILE           shift and go to state 18
+    FOREACH         shift and go to state 19
+    TRY             shift and go to state 20
+    IDENTIFIER      shift and go to state 5
+    CONSOLE         shift and go to state 21
+    INT             shift and go to state 22
+    DOUBLE          shift and go to state 23
+    STRING          shift and go to state 24
+
+    program                        shift and go to state 1
+    statement                      shift and go to state 2
+    empty                          shift and go to state 3
+    function                       shift and go to state 6
+    if_statement                   shift and go to state 7
+    for_loop                       shift and go to state 8
+    while_loop                     shift and go to state 9
+    foreach_loop                   shift and go to state 10
+    try_catch                      shift and go to state 11
+    assignment                     shift and go to state 12
+    method_call                    shift and go to state 13
+    variable_declaration           shift and go to state 14
+
+state 1
+
+    (0) S' -> program .
+
+
+
+state 2
+
+    (1) program -> statement . program
+    (1) program -> . statement program
+    (2) program -> . empty
+    (3) statement -> . CLASS IDENTIFIER LBRACE program RBRACE
+    (4) statement -> . function
+    (5) statement -> . if_statement
+    (6) statement -> . for_loop
+    (7) statement -> . while_loop
+    (8) statement -> . foreach_loop
+    (9) statement -> . try_catch
+    (10) statement -> . assignment
+    (11) statement -> . method_call
+    (12) statement -> . variable_declaration
+    (24) empty -> .
+    (13) function -> . PUBLIC STATIC VOID IDENTIFIER LPAREN RPAREN LBRACE program RBRACE
+    (17) if_statement -> . IF LPAREN IDENTIFIER RPAREN LBRACE program RBRACE
+    (18) for_loop -> . FOR LPAREN assignment SEMICOLON IDENTIFIER SEMICOLON IDENTIFIER RPAREN LBRACE program RBRACE
+    (19) while_loop -> . WHILE LPAREN IDENTIFIER RPAREN LBRACE program RBRACE
+    (20) foreach_loop -> . FOREACH LPAREN IDENTIFIER IDENTIFIER IDENTIFIER RPAREN LBRACE program RBRACE
+    (21) try_catch -> . TRY LBRACE program RBRACE CATCH LBRACE program RBRACE FINALLY LBRACE program RBRACE
+    (22) assignment -> . IDENTIFIER ASSIGN NUMBER SEMICOLON
+    (23) method_call -> . CONSOLE DOT WRITE LPAREN STRING_LITERAL RPAREN SEMICOLON
+    (14) variable_declaration -> . INT IDENTIFIER ASSIGN NUMBER SEMICOLON
+    (15) variable_declaration -> . DOUBLE IDENTIFIER ASSIGN NUMBER SEMICOLON
+    (16) variable_declaration -> . STRING IDENTIFIER ASSIGN STRING_LITERAL SEMICOLON
+
+    CLASS           shift and go to state 4
+    $end            reduce using rule 24 (empty -> .)
+    RBRACE          reduce using rule 24 (empty -> .)
+    PUBLIC          shift and go to state 15
+    IF              shift and go to state 16
+    FOR             shift and go to state 17
+    WHILE           shift and go to state 18
+    FOREACH         shift and go to state 19
+    TRY             shift and go to state 20
+    IDENTIFIER      shift and go to state 5
+    CONSOLE         shift and go to state 21
+    INT             shift and go to state 22
+    DOUBLE          shift and go to state 23
+    STRING          shift and go to state 24
+
+    statement                      shift and go to state 2
+    program                        shift and go to state 25
+    empty                          shift and go to state 3
+    function                       shift and go to state 6
+    if_statement                   shift and go to state 7
+    for_loop                       shift and go to state 8
+    while_loop                     shift and go to state 9
+    foreach_loop                   shift and go to state 10
+    try_catch                      shift and go to state 11
+    assignment                     shift and go to state 12
+    method_call                    shift and go to state 13
+    variable_declaration           shift and go to state 14
+
+state 3
+
+    (2) program -> empty .
+
+    $end            reduce using rule 2 (program -> empty .)
+    RBRACE          reduce using rule 2 (program -> empty .)
+
+
+state 4
+
+    (3) statement -> CLASS . IDENTIFIER LBRACE program RBRACE
+
+    IDENTIFIER      shift and go to state 26
+
+
+state 5
+
+    (22) assignment -> IDENTIFIER . ASSIGN NUMBER SEMICOLON
+
+    ASSIGN          shift and go to state 27
+
+
+state 6
+
+    (4) statement -> function .
+
+    CLASS           reduce using rule 4 (statement -> function .)
+    PUBLIC          reduce using rule 4 (statement -> function .)
+    IF              reduce using rule 4 (statement -> function .)
+    FOR             reduce using rule 4 (statement -> function .)
+    WHILE           reduce using rule 4 (statement -> function .)
+    FOREACH         reduce using rule 4 (statement -> function .)
+    TRY             reduce using rule 4 (statement -> function .)
+    IDENTIFIER      reduce using rule 4 (statement -> function .)
+    CONSOLE         reduce using rule 4 (statement -> function .)
+    INT             reduce using rule 4 (statement -> function .)
+    DOUBLE          reduce using rule 4 (statement -> function .)
+    STRING          reduce using rule 4 (statement -> function .)
+    $end            reduce using rule 4 (statement -> function .)
+    RBRACE          reduce using rule 4 (statement -> function .)
+
+
+state 7
+
+    (5) statement -> if_statement .
+
+    CLASS           reduce using rule 5 (statement -> if_statement .)
+    PUBLIC          reduce using rule 5 (statement -> if_statement .)
+    IF              reduce using rule 5 (statement -> if_statement .)
+    FOR             reduce using rule 5 (statement -> if_statement .)
+    WHILE           reduce using rule 5 (statement -> if_statement .)
+    FOREACH         reduce using rule 5 (statement -> if_statement .)
+    TRY             reduce using rule 5 (statement -> if_statement .)
+    IDENTIFIER      reduce using rule 5 (statement -> if_statement .)
+    CONSOLE         reduce using rule 5 (statement -> if_statement .)
+    INT             reduce using rule 5 (statement -> if_statement .)
+    DOUBLE          reduce using rule 5 (statement -> if_statement .)
+    STRING          reduce using rule 5 (statement -> if_statement .)
+    $end            reduce using rule 5 (statement -> if_statement .)
+    RBRACE          reduce using rule 5 (statement -> if_statement .)
+
+
+state 8
+
+    (6) statement -> for_loop .
+
+    CLASS           reduce using rule 6 (statement -> for_loop .)
+    PUBLIC          reduce using rule 6 (statement -> for_loop .)
+    IF              reduce using rule 6 (statement -> for_loop .)
+    FOR             reduce using rule 6 (statement -> for_loop .)
+    WHILE           reduce using rule 6 (statement -> for_loop .)
+    FOREACH         reduce using rule 6 (statement -> for_loop .)
+    TRY             reduce using rule 6 (statement -> for_loop .)
+    IDENTIFIER      reduce using rule 6 (statement -> for_loop .)
+    CONSOLE         reduce using rule 6 (statement -> for_loop .)
+    INT             reduce using rule 6 (statement -> for_loop .)
+    DOUBLE          reduce using rule 6 (statement -> for_loop .)
+    STRING          reduce using rule 6 (statement -> for_loop .)
+    $end            reduce using rule 6 (statement -> for_loop .)
+    RBRACE          reduce using rule 6 (statement -> for_loop .)
+
+
+state 9
+
+    (7) statement -> while_loop .
+
+    CLASS           reduce using rule 7 (statement -> while_loop .)
+    PUBLIC          reduce using rule 7 (statement -> while_loop .)
+    IF              reduce using rule 7 (statement -> while_loop .)
+    FOR             reduce using rule 7 (statement -> while_loop .)
+    WHILE           reduce using rule 7 (statement -> while_loop .)
+    FOREACH         reduce using rule 7 (statement -> while_loop .)
+    TRY             reduce using rule 7 (statement -> while_loop .)
+    IDENTIFIER      reduce using rule 7 (statement -> while_loop .)
+    CONSOLE         reduce using rule 7 (statement -> while_loop .)
+    INT             reduce using rule 7 (statement -> while_loop .)
+    DOUBLE          reduce using rule 7 (statement -> while_loop .)
+    STRING          reduce using rule 7 (statement -> while_loop .)
+    $end            reduce using rule 7 (statement -> while_loop .)
+    RBRACE          reduce using rule 7 (statement -> while_loop .)
+
+
+state 10
+
+    (8) statement -> foreach_loop .
+
+    CLASS           reduce using rule 8 (statement -> foreach_loop .)
+    PUBLIC          reduce using rule 8 (statement -> foreach_loop .)
+    IF              reduce using rule 8 (statement -> foreach_loop .)
+    FOR             reduce using rule 8 (statement -> foreach_loop .)
+    WHILE           reduce using rule 8 (statement -> foreach_loop .)
+    FOREACH         reduce using rule 8 (statement -> foreach_loop .)
+    TRY             reduce using rule 8 (statement -> foreach_loop .)
+    IDENTIFIER      reduce using rule 8 (statement -> foreach_loop .)
+    CONSOLE         reduce using rule 8 (statement -> foreach_loop .)
+    INT             reduce using rule 8 (statement -> foreach_loop .)
+    DOUBLE          reduce using rule 8 (statement -> foreach_loop .)
+    STRING          reduce using rule 8 (statement -> foreach_loop .)
+    $end            reduce using rule 8 (statement -> foreach_loop .)
+    RBRACE          reduce using rule 8 (statement -> foreach_loop .)
+
+
+state 11
+
+    (9) statement -> try_catch .
+
+    CLASS           reduce using rule 9 (statement -> try_catch .)
+    PUBLIC          reduce using rule 9 (statement -> try_catch .)
+    IF              reduce using rule 9 (statement -> try_catch .)
+    FOR             reduce using rule 9 (statement -> try_catch .)
+    WHILE           reduce using rule 9 (statement -> try_catch .)
+    FOREACH         reduce using rule 9 (statement -> try_catch .)
+    TRY             reduce using rule 9 (statement -> try_catch .)
+    IDENTIFIER      reduce using rule 9 (statement -> try_catch .)
+    CONSOLE         reduce using rule 9 (statement -> try_catch .)
+    INT             reduce using rule 9 (statement -> try_catch .)
+    DOUBLE          reduce using rule 9 (statement -> try_catch .)
+    STRING          reduce using rule 9 (statement -> try_catch .)
+    $end            reduce using rule 9 (statement -> try_catch .)
+    RBRACE          reduce using rule 9 (statement -> try_catch .)
+
+
+state 12
+
+    (10) statement -> assignment .
+
+    CLASS           reduce using rule 10 (statement -> assignment .)
+    PUBLIC          reduce using rule 10 (statement -> assignment .)
+    IF              reduce using rule 10 (statement -> assignment .)
+    FOR             reduce using rule 10 (statement -> assignment .)
+    WHILE           reduce using rule 10 (statement -> assignment .)
+    FOREACH         reduce using rule 10 (statement -> assignment .)
+    TRY             reduce using rule 10 (statement -> assignment .)
+    IDENTIFIER      reduce using rule 10 (statement -> assignment .)
+    CONSOLE         reduce using rule 10 (statement -> assignment .)
+    INT             reduce using rule 10 (statement -> assignment .)
+    DOUBLE          reduce using rule 10 (statement -> assignment .)
+    STRING          reduce using rule 10 (statement -> assignment .)
+    $end            reduce using rule 10 (statement -> assignment .)
+    RBRACE          reduce using rule 10 (statement -> assignment .)
+
+
+state 13
+
+    (11) statement -> method_call .
+
+    CLASS           reduce using rule 11 (statement -> method_call .)
+    PUBLIC          reduce using rule 11 (statement -> method_call .)
+    IF              reduce using rule 11 (statement -> method_call .)
+    FOR             reduce using rule 11 (statement -> method_call .)
+    WHILE           reduce using rule 11 (statement -> method_call .)
+    FOREACH         reduce using rule 11 (statement -> method_call .)
+    TRY             reduce using rule 11 (statement -> method_call .)
+    IDENTIFIER      reduce using rule 11 (statement -> method_call .)
+    CONSOLE         reduce using rule 11 (statement -> method_call .)
+    INT             reduce using rule 11 (statement -> method_call .)
+    DOUBLE          reduce using rule 11 (statement -> method_call .)
+    STRING          reduce using rule 11 (statement -> method_call .)
+    $end            reduce using rule 11 (statement -> method_call .)
+    RBRACE          reduce using rule 11 (statement -> method_call .)
+
+
+state 14
+
+    (12) statement -> variable_declaration .
+
+    CLASS           reduce using rule 12 (statement -> variable_declaration .)
+    PUBLIC          reduce using rule 12 (statement -> variable_declaration .)
+    IF              reduce using rule 12 (statement -> variable_declaration .)
+    FOR             reduce using rule 12 (statement -> variable_declaration .)
+    WHILE           reduce using rule 12 (statement -> variable_declaration .)
+    FOREACH         reduce using rule 12 (statement -> variable_declaration .)
+    TRY             reduce using rule 12 (statement -> variable_declaration .)
+    IDENTIFIER      reduce using rule 12 (statement -> variable_declaration .)
+    CONSOLE         reduce using rule 12 (statement -> variable_declaration .)
+    INT             reduce using rule 12 (statement -> variable_declaration .)
+    DOUBLE          reduce using rule 12 (statement -> variable_declaration .)
+    STRING          reduce using rule 12 (statement -> variable_declaration .)
+    $end            reduce using rule 12 (statement -> variable_declaration .)
+    RBRACE          reduce using rule 12 (statement -> variable_declaration .)
+
+
+state 15
+
+    (13) function -> PUBLIC . STATIC VOID IDENTIFIER LPAREN RPAREN LBRACE program RBRACE
+
+    STATIC          shift and go to state 28
+
+
+state 16
+
+    (17) if_statement -> IF . LPAREN IDENTIFIER RPAREN LBRACE program RBRACE
+
+    LPAREN          shift and go to state 29
+
+
+state 17
+
+    (18) for_loop -> FOR . LPAREN assignment SEMICOLON IDENTIFIER SEMICOLON IDENTIFIER RPAREN LBRACE program RBRACE
+
+    LPAREN          shift and go to state 30
+
+
+state 18
+
+    (19) while_loop -> WHILE . LPAREN IDENTIFIER RPAREN LBRACE program RBRACE
+
+    LPAREN          shift and go to state 31
+
+
+state 19
+
+    (20) foreach_loop -> FOREACH . LPAREN IDENTIFIER IDENTIFIER IDENTIFIER RPAREN LBRACE program RBRACE
+
+    LPAREN          shift and go to state 32
+
+
+state 20
+
+    (21) try_catch -> TRY . LBRACE program RBRACE CATCH LBRACE program RBRACE FINALLY LBRACE program RBRACE
+
+    LBRACE          shift and go to state 33
+
+
+state 21
+
+    (23) method_call -> CONSOLE . DOT WRITE LPAREN STRING_LITERAL RPAREN SEMICOLON
+
+    DOT             shift and go to state 34
+
+
+state 22
+
+    (14) variable_declaration -> INT . IDENTIFIER ASSIGN NUMBER SEMICOLON
+
+    IDENTIFIER      shift and go to state 35
+
+
+state 23
+
+    (15) variable_declaration -> DOUBLE . IDENTIFIER ASSIGN NUMBER SEMICOLON
+
+    IDENTIFIER      shift and go to state 36
+
+
+state 24
+
+    (16) variable_declaration -> STRING . IDENTIFIER ASSIGN STRING_LITERAL SEMICOLON
+
+    IDENTIFIER      shift and go to state 37
+
+
+state 25
+
+    (1) program -> statement program .
+
+    $end            reduce using rule 1 (program -> statement program .)
+    RBRACE          reduce using rule 1 (program -> statement program .)
+
+
+state 26
+
+    (3) statement -> CLASS IDENTIFIER . LBRACE program RBRACE
+
+    LBRACE          shift and go to state 38
+
+
+state 27
+
+    (22) assignment -> IDENTIFIER ASSIGN . NUMBER SEMICOLON
+
+    NUMBER          shift and go to state 39
+
+
+state 28
+
+    (13) function -> PUBLIC STATIC . VOID IDENTIFIER LPAREN RPAREN LBRACE program RBRACE
+
+    VOID            shift and go to state 40
+
+
+state 29
+
+    (17) if_statement -> IF LPAREN . IDENTIFIER RPAREN LBRACE program RBRACE
+
+    IDENTIFIER      shift and go to state 41
+
+
+state 30
+
+    (18) for_loop -> FOR LPAREN . assignment SEMICOLON IDENTIFIER SEMICOLON IDENTIFIER RPAREN LBRACE program RBRACE
+    (22) assignment -> . IDENTIFIER ASSIGN NUMBER SEMICOLON
+
+    IDENTIFIER      shift and go to state 5
+
+    assignment                     shift and go to state 42
+
+state 31
+
+    (19) while_loop -> WHILE LPAREN . IDENTIFIER RPAREN LBRACE program RBRACE
+
+    IDENTIFIER      shift and go to state 43
+
+
+state 32
+
+    (20) foreach_loop -> FOREACH LPAREN . IDENTIFIER IDENTIFIER IDENTIFIER RPAREN LBRACE program RBRACE
+
+    IDENTIFIER      shift and go to state 44
+
+
+state 33
+
+    (21) try_catch -> TRY LBRACE . program RBRACE CATCH LBRACE program RBRACE FINALLY LBRACE program RBRACE
+    (1) program -> . statement program
+    (2) program -> . empty
+    (3) statement -> . CLASS IDENTIFIER LBRACE program RBRACE
+    (4) statement -> . function
+    (5) statement -> . if_statement
+    (6) statement -> . for_loop
+    (7) statement -> . while_loop
+    (8) statement -> . foreach_loop
+    (9) statement -> . try_catch
+    (10) statement -> . assignment
+    (11) statement -> . method_call
+    (12) statement -> . variable_declaration
+    (24) empty -> .
+    (13) function -> . PUBLIC STATIC VOID IDENTIFIER LPAREN RPAREN LBRACE program RBRACE
+    (17) if_statement -> . IF LPAREN IDENTIFIER RPAREN LBRACE program RBRACE
+    (18) for_loop -> . FOR LPAREN assignment SEMICOLON IDENTIFIER SEMICOLON IDENTIFIER RPAREN LBRACE program RBRACE
+    (19) while_loop -> . WHILE LPAREN IDENTIFIER RPAREN LBRACE program RBRACE
+    (20) foreach_loop -> . FOREACH LPAREN IDENTIFIER IDENTIFIER IDENTIFIER RPAREN LBRACE program RBRACE
+    (21) try_catch -> . TRY LBRACE program RBRACE CATCH LBRACE program RBRACE FINALLY LBRACE program RBRACE
+    (22) assignment -> . IDENTIFIER ASSIGN NUMBER SEMICOLON
+    (23) method_call -> . CONSOLE DOT WRITE LPAREN STRING_LITERAL RPAREN SEMICOLON
+    (14) variable_declaration -> . INT IDENTIFIER ASSIGN NUMBER SEMICOLON
+    (15) variable_declaration -> . DOUBLE IDENTIFIER ASSIGN NUMBER SEMICOLON
+    (16) variable_declaration -> . STRING IDENTIFIER ASSIGN STRING_LITERAL SEMICOLON
+
+    CLASS           shift and go to state 4
+    RBRACE          reduce using rule 24 (empty -> .)
+    PUBLIC          shift and go to state 15
+    IF              shift and go to state 16
+    FOR             shift and go to state 17
+    WHILE           shift and go to state 18
+    FOREACH         shift and go to state 19
+    TRY             shift and go to state 20
+    IDENTIFIER      shift and go to state 5
+    CONSOLE         shift and go to state 21
+    INT             shift and go to state 22
+    DOUBLE          shift and go to state 23
+    STRING          shift and go to state 24
+
+    program                        shift and go to state 45
+    statement                      shift and go to state 2
+    empty                          shift and go to state 3
+    function                       shift and go to state 6
+    if_statement                   shift and go to state 7
+    for_loop                       shift and go to state 8
+    while_loop                     shift and go to state 9
+    foreach_loop                   shift and go to state 10
+    try_catch                      shift and go to state 11
+    assignment                     shift and go to state 12
+    method_call                    shift and go to state 13
+    variable_declaration           shift and go to state 14
+
+state 34
+
+    (23) method_call -> CONSOLE DOT . WRITE LPAREN STRING_LITERAL RPAREN SEMICOLON
+
+    WRITE           shift and go to state 46
+
+
+state 35
+
+    (14) variable_declaration -> INT IDENTIFIER . ASSIGN NUMBER SEMICOLON
+
+    ASSIGN          shift and go to state 47
+
+
+state 36
+
+    (15) variable_declaration -> DOUBLE IDENTIFIER . ASSIGN NUMBER SEMICOLON
+
+    ASSIGN          shift and go to state 48
+
+
+state 37
+
+    (16) variable_declaration -> STRING IDENTIFIER . ASSIGN STRING_LITERAL SEMICOLON
+
+    ASSIGN          shift and go to state 49
+
+
+state 38
+
+    (3) statement -> CLASS IDENTIFIER LBRACE . program RBRACE
+    (1) program -> . statement program
+    (2) program -> . empty
+    (3) statement -> . CLASS IDENTIFIER LBRACE program RBRACE
+    (4) statement -> . function
+    (5) statement -> . if_statement
+    (6) statement -> . for_loop
+    (7) statement -> . while_loop
+    (8) statement -> . foreach_loop
+    (9) statement -> . try_catch
+    (10) statement -> . assignment
+    (11) statement -> . method_call
+    (12) statement -> . variable_declaration
+    (24) empty -> .
+    (13) function -> . PUBLIC STATIC VOID IDENTIFIER LPAREN RPAREN LBRACE program RBRACE
+    (17) if_statement -> . IF LPAREN IDENTIFIER RPAREN LBRACE program RBRACE
+    (18) for_loop -> . FOR LPAREN assignment SEMICOLON IDENTIFIER SEMICOLON IDENTIFIER RPAREN LBRACE program RBRACE
+    (19) while_loop -> . WHILE LPAREN IDENTIFIER RPAREN LBRACE program RBRACE
+    (20) foreach_loop -> . FOREACH LPAREN IDENTIFIER IDENTIFIER IDENTIFIER RPAREN LBRACE program RBRACE
+    (21) try_catch -> . TRY LBRACE program RBRACE CATCH LBRACE program RBRACE FINALLY LBRACE program RBRACE
+    (22) assignment -> . IDENTIFIER ASSIGN NUMBER SEMICOLON
+    (23) method_call -> . CONSOLE DOT WRITE LPAREN STRING_LITERAL RPAREN SEMICOLON
+    (14) variable_declaration -> . INT IDENTIFIER ASSIGN NUMBER SEMICOLON
+    (15) variable_declaration -> . DOUBLE IDENTIFIER ASSIGN NUMBER SEMICOLON
+    (16) variable_declaration -> . STRING IDENTIFIER ASSIGN STRING_LITERAL SEMICOLON
+
+    CLASS           shift and go to state 4
+    RBRACE          reduce using rule 24 (empty -> .)
+    PUBLIC          shift and go to state 15
+    IF              shift and go to state 16
+    FOR             shift and go to state 17
+    WHILE           shift and go to state 18
+    FOREACH         shift and go to state 19
+    TRY             shift and go to state 20
+    IDENTIFIER      shift and go to state 5
+    CONSOLE         shift and go to state 21
+    INT             shift and go to state 22
+    DOUBLE          shift and go to state 23
+    STRING          shift and go to state 24
+
+    program                        shift and go to state 50
+    statement                      shift and go to state 2
+    empty                          shift and go to state 3
+    function                       shift and go to state 6
+    if_statement                   shift and go to state 7
+    for_loop                       shift and go to state 8
+    while_loop                     shift and go to state 9
+    foreach_loop                   shift and go to state 10
+    try_catch                      shift and go to state 11
+    assignment                     shift and go to state 12
+    method_call                    shift and go to state 13
+    variable_declaration           shift and go to state 14
+
+state 39
+
+    (22) assignment -> IDENTIFIER ASSIGN NUMBER . SEMICOLON
+
+    SEMICOLON       shift and go to state 51
+
+
+state 40
+
+    (13) function -> PUBLIC STATIC VOID . IDENTIFIER LPAREN RPAREN LBRACE program RBRACE
+
+    IDENTIFIER      shift and go to state 52
+
+
+state 41
+
+    (17) if_statement -> IF LPAREN IDENTIFIER . RPAREN LBRACE program RBRACE
+
+    RPAREN          shift and go to state 53
+
+
+state 42
+
+    (18) for_loop -> FOR LPAREN assignment . SEMICOLON IDENTIFIER SEMICOLON IDENTIFIER RPAREN LBRACE program RBRACE
+
+    SEMICOLON       shift and go to state 54
+
+
+state 43
+
+    (19) while_loop -> WHILE LPAREN IDENTIFIER . RPAREN LBRACE program RBRACE
+
+    RPAREN          shift and go to state 55
+
+
+state 44
+
+    (20) foreach_loop -> FOREACH LPAREN IDENTIFIER . IDENTIFIER IDENTIFIER RPAREN LBRACE program RBRACE
+
+    IDENTIFIER      shift and go to state 56
+
+
+state 45
+
+    (21) try_catch -> TRY LBRACE program . RBRACE CATCH LBRACE program RBRACE FINALLY LBRACE program RBRACE
+
+    RBRACE          shift and go to state 57
+
+
+state 46
+
+    (23) method_call -> CONSOLE DOT WRITE . LPAREN STRING_LITERAL RPAREN SEMICOLON
+
+    LPAREN          shift and go to state 58
+
+
+state 47
+
+    (14) variable_declaration -> INT IDENTIFIER ASSIGN . NUMBER SEMICOLON
+
+    NUMBER          shift and go to state 59
+
+
+state 48
+
+    (15) variable_declaration -> DOUBLE IDENTIFIER ASSIGN . NUMBER SEMICOLON
+
+    NUMBER          shift and go to state 60
+
+
+state 49
+
+    (16) variable_declaration -> STRING IDENTIFIER ASSIGN . STRING_LITERAL SEMICOLON
+
+    STRING_LITERAL  shift and go to state 61
+
+
+state 50
+
+    (3) statement -> CLASS IDENTIFIER LBRACE program . RBRACE
+
+    RBRACE          shift and go to state 62
+
+
+state 51
+
+    (22) assignment -> IDENTIFIER ASSIGN NUMBER SEMICOLON .
+
+    CLASS           reduce using rule 22 (assignment -> IDENTIFIER ASSIGN NUMBER SEMICOLON .)
+    PUBLIC          reduce using rule 22 (assignment -> IDENTIFIER ASSIGN NUMBER SEMICOLON .)
+    IF              reduce using rule 22 (assignment -> IDENTIFIER ASSIGN NUMBER SEMICOLON .)
+    FOR             reduce using rule 22 (assignment -> IDENTIFIER ASSIGN NUMBER SEMICOLON .)
+    WHILE           reduce using rule 22 (assignment -> IDENTIFIER ASSIGN NUMBER SEMICOLON .)
+    FOREACH         reduce using rule 22 (assignment -> IDENTIFIER ASSIGN NUMBER SEMICOLON .)
+    TRY             reduce using rule 22 (assignment -> IDENTIFIER ASSIGN NUMBER SEMICOLON .)
+    IDENTIFIER      reduce using rule 22 (assignment -> IDENTIFIER ASSIGN NUMBER SEMICOLON .)
+    CONSOLE         reduce using rule 22 (assignment -> IDENTIFIER ASSIGN NUMBER SEMICOLON .)
+    INT             reduce using rule 22 (assignment -> IDENTIFIER ASSIGN NUMBER SEMICOLON .)
+    DOUBLE          reduce using rule 22 (assignment -> IDENTIFIER ASSIGN NUMBER SEMICOLON .)
+    STRING          reduce using rule 22 (assignment -> IDENTIFIER ASSIGN NUMBER SEMICOLON .)
+    $end            reduce using rule 22 (assignment -> IDENTIFIER ASSIGN NUMBER SEMICOLON .)
+    RBRACE          reduce using rule 22 (assignment -> IDENTIFIER ASSIGN NUMBER SEMICOLON .)
+    SEMICOLON       reduce using rule 22 (assignment -> IDENTIFIER ASSIGN NUMBER SEMICOLON .)
+
+
+state 52
+
+    (13) function -> PUBLIC STATIC VOID IDENTIFIER . LPAREN RPAREN LBRACE program RBRACE
+
+    LPAREN          shift and go to state 63
+
+
+state 53
+
+    (17) if_statement -> IF LPAREN IDENTIFIER RPAREN . LBRACE program RBRACE
+
+    LBRACE          shift and go to state 64
+
+
+state 54
+
+    (18) for_loop -> FOR LPAREN assignment SEMICOLON . IDENTIFIER SEMICOLON IDENTIFIER RPAREN LBRACE program RBRACE
+
+    IDENTIFIER      shift and go to state 65
+
+
+state 55
+
+    (19) while_loop -> WHILE LPAREN IDENTIFIER RPAREN . LBRACE program RBRACE
+
+    LBRACE          shift and go to state 66
+
+
+state 56
+
+    (20) foreach_loop -> FOREACH LPAREN IDENTIFIER IDENTIFIER . IDENTIFIER RPAREN LBRACE program RBRACE
+
+    IDENTIFIER      shift and go to state 67
+
+
+state 57
+
+    (21) try_catch -> TRY LBRACE program RBRACE . CATCH LBRACE program RBRACE FINALLY LBRACE program RBRACE
+
+    CATCH           shift and go to state 68
+
+
+state 58
+
+    (23) method_call -> CONSOLE DOT WRITE LPAREN . STRING_LITERAL RPAREN SEMICOLON
+
+    STRING_LITERAL  shift and go to state 69
+
+
+state 59
+
+    (14) variable_declaration -> INT IDENTIFIER ASSIGN NUMBER . SEMICOLON
+
+    SEMICOLON       shift and go to state 70
+
+
+state 60
+
+    (15) variable_declaration -> DOUBLE IDENTIFIER ASSIGN NUMBER . SEMICOLON
+
+    SEMICOLON       shift and go to state 71
+
+
+state 61
+
+    (16) variable_declaration -> STRING IDENTIFIER ASSIGN STRING_LITERAL . SEMICOLON
+
+    SEMICOLON       shift and go to state 72
+
+
+state 62
+
+    (3) statement -> CLASS IDENTIFIER LBRACE program RBRACE .
+
+    CLASS           reduce using rule 3 (statement -> CLASS IDENTIFIER LBRACE program RBRACE .)
+    PUBLIC          reduce using rule 3 (statement -> CLASS IDENTIFIER LBRACE program RBRACE .)
+    IF              reduce using rule 3 (statement -> CLASS IDENTIFIER LBRACE program RBRACE .)
+    FOR             reduce using rule 3 (statement -> CLASS IDENTIFIER LBRACE program RBRACE .)
+    WHILE           reduce using rule 3 (statement -> CLASS IDENTIFIER LBRACE program RBRACE .)
+    FOREACH         reduce using rule 3 (statement -> CLASS IDENTIFIER LBRACE program RBRACE .)
+    TRY             reduce using rule 3 (statement -> CLASS IDENTIFIER LBRACE program RBRACE .)
+    IDENTIFIER      reduce using rule 3 (statement -> CLASS IDENTIFIER LBRACE program RBRACE .)
+    CONSOLE         reduce using rule 3 (statement -> CLASS IDENTIFIER LBRACE program RBRACE .)
+    INT             reduce using rule 3 (statement -> CLASS IDENTIFIER LBRACE program RBRACE .)
+    DOUBLE          reduce using rule 3 (statement -> CLASS IDENTIFIER LBRACE program RBRACE .)
+    STRING          reduce using rule 3 (statement -> CLASS IDENTIFIER LBRACE program RBRACE .)
+    $end            reduce using rule 3 (statement -> CLASS IDENTIFIER LBRACE program RBRACE .)
+    RBRACE          reduce using rule 3 (statement -> CLASS IDENTIFIER LBRACE program RBRACE .)
+
+
+state 63
+
+    (13) function -> PUBLIC STATIC VOID IDENTIFIER LPAREN . RPAREN LBRACE program RBRACE
+
+    RPAREN          shift and go to state 73
+
+
+state 64
+
+    (17) if_statement -> IF LPAREN IDENTIFIER RPAREN LBRACE . program RBRACE
+    (1) program -> . statement program
+    (2) program -> . empty
+    (3) statement -> . CLASS IDENTIFIER LBRACE program RBRACE
+    (4) statement -> . function
+    (5) statement -> . if_statement
+    (6) statement -> . for_loop
+    (7) statement -> . while_loop
+    (8) statement -> . foreach_loop
+    (9) statement -> . try_catch
+    (10) statement -> . assignment
+    (11) statement -> . method_call
+    (12) statement -> . variable_declaration
+    (24) empty -> .
+    (13) function -> . PUBLIC STATIC VOID IDENTIFIER LPAREN RPAREN LBRACE program RBRACE
+    (17) if_statement -> . IF LPAREN IDENTIFIER RPAREN LBRACE program RBRACE
+    (18) for_loop -> . FOR LPAREN assignment SEMICOLON IDENTIFIER SEMICOLON IDENTIFIER RPAREN LBRACE program RBRACE
+    (19) while_loop -> . WHILE LPAREN IDENTIFIER RPAREN LBRACE program RBRACE
+    (20) foreach_loop -> . FOREACH LPAREN IDENTIFIER IDENTIFIER IDENTIFIER RPAREN LBRACE program RBRACE
+    (21) try_catch -> . TRY LBRACE program RBRACE CATCH LBRACE program RBRACE FINALLY LBRACE program RBRACE
+    (22) assignment -> . IDENTIFIER ASSIGN NUMBER SEMICOLON
+    (23) method_call -> . CONSOLE DOT WRITE LPAREN STRING_LITERAL RPAREN SEMICOLON
+    (14) variable_declaration -> . INT IDENTIFIER ASSIGN NUMBER SEMICOLON
+    (15) variable_declaration -> . DOUBLE IDENTIFIER ASSIGN NUMBER SEMICOLON
+    (16) variable_declaration -> . STRING IDENTIFIER ASSIGN STRING_LITERAL SEMICOLON
+
+    CLASS           shift and go to state 4
+    RBRACE          reduce using rule 24 (empty -> .)
+    PUBLIC          shift and go to state 15
+    IF              shift and go to state 16
+    FOR             shift and go to state 17
+    WHILE           shift and go to state 18
+    FOREACH         shift and go to state 19
+    TRY             shift and go to state 20
+    IDENTIFIER      shift and go to state 5
+    CONSOLE         shift and go to state 21
+    INT             shift and go to state 22
+    DOUBLE          shift and go to state 23
+    STRING          shift and go to state 24
+
+    program                        shift and go to state 74
+    statement                      shift and go to state 2
+    empty                          shift and go to state 3
+    function                       shift and go to state 6
+    if_statement                   shift and go to state 7
+    for_loop                       shift and go to state 8
+    while_loop                     shift and go to state 9
+    foreach_loop                   shift and go to state 10
+    try_catch                      shift and go to state 11
+    assignment                     shift and go to state 12
+    method_call                    shift and go to state 13
+    variable_declaration           shift and go to state 14
+
+state 65
+
+    (18) for_loop -> FOR LPAREN assignment SEMICOLON IDENTIFIER . SEMICOLON IDENTIFIER RPAREN LBRACE program RBRACE
+
+    SEMICOLON       shift and go to state 75
+
+
+state 66
+
+    (19) while_loop -> WHILE LPAREN IDENTIFIER RPAREN LBRACE . program RBRACE
+    (1) program -> . statement program
+    (2) program -> . empty
+    (3) statement -> . CLASS IDENTIFIER LBRACE program RBRACE
+    (4) statement -> . function
+    (5) statement -> . if_statement
+    (6) statement -> . for_loop
+    (7) statement -> . while_loop
+    (8) statement -> . foreach_loop
+    (9) statement -> . try_catch
+    (10) statement -> . assignment
+    (11) statement -> . method_call
+    (12) statement -> . variable_declaration
+    (24) empty -> .
+    (13) function -> . PUBLIC STATIC VOID IDENTIFIER LPAREN RPAREN LBRACE program RBRACE
+    (17) if_statement -> . IF LPAREN IDENTIFIER RPAREN LBRACE program RBRACE
+    (18) for_loop -> . FOR LPAREN assignment SEMICOLON IDENTIFIER SEMICOLON IDENTIFIER RPAREN LBRACE program RBRACE
+    (19) while_loop -> . WHILE LPAREN IDENTIFIER RPAREN LBRACE program RBRACE
+    (20) foreach_loop -> . FOREACH LPAREN IDENTIFIER IDENTIFIER IDENTIFIER RPAREN LBRACE program RBRACE
+    (21) try_catch -> . TRY LBRACE program RBRACE CATCH LBRACE program RBRACE FINALLY LBRACE program RBRACE
+    (22) assignment -> . IDENTIFIER ASSIGN NUMBER SEMICOLON
+    (23) method_call -> . CONSOLE DOT WRITE LPAREN STRING_LITERAL RPAREN SEMICOLON
+    (14) variable_declaration -> . INT IDENTIFIER ASSIGN NUMBER SEMICOLON
+    (15) variable_declaration -> . DOUBLE IDENTIFIER ASSIGN NUMBER SEMICOLON
+    (16) variable_declaration -> . STRING IDENTIFIER ASSIGN STRING_LITERAL SEMICOLON
+
+    CLASS           shift and go to state 4
+    RBRACE          reduce using rule 24 (empty -> .)
+    PUBLIC          shift and go to state 15
+    IF              shift and go to state 16
+    FOR             shift and go to state 17
+    WHILE           shift and go to state 18
+    FOREACH         shift and go to state 19
+    TRY             shift and go to state 20
+    IDENTIFIER      shift and go to state 5
+    CONSOLE         shift and go to state 21
+    INT             shift and go to state 22
+    DOUBLE          shift and go to state 23
+    STRING          shift and go to state 24
+
+    program                        shift and go to state 76
+    statement                      shift and go to state 2
+    empty                          shift and go to state 3
+    function                       shift and go to state 6
+    if_statement                   shift and go to state 7
+    for_loop                       shift and go to state 8
+    while_loop                     shift and go to state 9
+    foreach_loop                   shift and go to state 10
+    try_catch                      shift and go to state 11
+    assignment                     shift and go to state 12
+    method_call                    shift and go to state 13
+    variable_declaration           shift and go to state 14
+
+state 67
+
+    (20) foreach_loop -> FOREACH LPAREN IDENTIFIER IDENTIFIER IDENTIFIER . RPAREN LBRACE program RBRACE
+
+    RPAREN          shift and go to state 77
+
+
+state 68
+
+    (21) try_catch -> TRY LBRACE program RBRACE CATCH . LBRACE program RBRACE FINALLY LBRACE program RBRACE
+
+    LBRACE          shift and go to state 78
+
+
+state 69
+
+    (23) method_call -> CONSOLE DOT WRITE LPAREN STRING_LITERAL . RPAREN SEMICOLON
+
+    RPAREN          shift and go to state 79
+
+
+state 70
+
+    (14) variable_declaration -> INT IDENTIFIER ASSIGN NUMBER SEMICOLON .
+
+    CLASS           reduce using rule 14 (variable_declaration -> INT IDENTIFIER ASSIGN NUMBER SEMICOLON .)
+    PUBLIC          reduce using rule 14 (variable_declaration -> INT IDENTIFIER ASSIGN NUMBER SEMICOLON .)
+    IF              reduce using rule 14 (variable_declaration -> INT IDENTIFIER ASSIGN NUMBER SEMICOLON .)
+    FOR             reduce using rule 14 (variable_declaration -> INT IDENTIFIER ASSIGN NUMBER SEMICOLON .)
+    WHILE           reduce using rule 14 (variable_declaration -> INT IDENTIFIER ASSIGN NUMBER SEMICOLON .)
+    FOREACH         reduce using rule 14 (variable_declaration -> INT IDENTIFIER ASSIGN NUMBER SEMICOLON .)
+    TRY             reduce using rule 14 (variable_declaration -> INT IDENTIFIER ASSIGN NUMBER SEMICOLON .)
+    IDENTIFIER      reduce using rule 14 (variable_declaration -> INT IDENTIFIER ASSIGN NUMBER SEMICOLON .)
+    CONSOLE         reduce using rule 14 (variable_declaration -> INT IDENTIFIER ASSIGN NUMBER SEMICOLON .)
+    INT             reduce using rule 14 (variable_declaration -> INT IDENTIFIER ASSIGN NUMBER SEMICOLON .)
+    DOUBLE          reduce using rule 14 (variable_declaration -> INT IDENTIFIER ASSIGN NUMBER SEMICOLON .)
+    STRING          reduce using rule 14 (variable_declaration -> INT IDENTIFIER ASSIGN NUMBER SEMICOLON .)
+    $end            reduce using rule 14 (variable_declaration -> INT IDENTIFIER ASSIGN NUMBER SEMICOLON .)
+    RBRACE          reduce using rule 14 (variable_declaration -> INT IDENTIFIER ASSIGN NUMBER SEMICOLON .)
+
+
+state 71
+
+    (15) variable_declaration -> DOUBLE IDENTIFIER ASSIGN NUMBER SEMICOLON .
+
+    CLASS           reduce using rule 15 (variable_declaration -> DOUBLE IDENTIFIER ASSIGN NUMBER SEMICOLON .)
+    PUBLIC          reduce using rule 15 (variable_declaration -> DOUBLE IDENTIFIER ASSIGN NUMBER SEMICOLON .)
+    IF              reduce using rule 15 (variable_declaration -> DOUBLE IDENTIFIER ASSIGN NUMBER SEMICOLON .)
+    FOR             reduce using rule 15 (variable_declaration -> DOUBLE IDENTIFIER ASSIGN NUMBER SEMICOLON .)
+    WHILE           reduce using rule 15 (variable_declaration -> DOUBLE IDENTIFIER ASSIGN NUMBER SEMICOLON .)
+    FOREACH         reduce using rule 15 (variable_declaration -> DOUBLE IDENTIFIER ASSIGN NUMBER SEMICOLON .)
+    TRY             reduce using rule 15 (variable_declaration -> DOUBLE IDENTIFIER ASSIGN NUMBER SEMICOLON .)
+    IDENTIFIER      reduce using rule 15 (variable_declaration -> DOUBLE IDENTIFIER ASSIGN NUMBER SEMICOLON .)
+    CONSOLE         reduce using rule 15 (variable_declaration -> DOUBLE IDENTIFIER ASSIGN NUMBER SEMICOLON .)
+    INT             reduce using rule 15 (variable_declaration -> DOUBLE IDENTIFIER ASSIGN NUMBER SEMICOLON .)
+    DOUBLE          reduce using rule 15 (variable_declaration -> DOUBLE IDENTIFIER ASSIGN NUMBER SEMICOLON .)
+    STRING          reduce using rule 15 (variable_declaration -> DOUBLE IDENTIFIER ASSIGN NUMBER SEMICOLON .)
+    $end            reduce using rule 15 (variable_declaration -> DOUBLE IDENTIFIER ASSIGN NUMBER SEMICOLON .)
+    RBRACE          reduce using rule 15 (variable_declaration -> DOUBLE IDENTIFIER ASSIGN NUMBER SEMICOLON .)
+
+
+state 72
+
+    (16) variable_declaration -> STRING IDENTIFIER ASSIGN STRING_LITERAL SEMICOLON .
+
+    CLASS           reduce using rule 16 (variable_declaration -> STRING IDENTIFIER ASSIGN STRING_LITERAL SEMICOLON .)
+    PUBLIC          reduce using rule 16 (variable_declaration -> STRING IDENTIFIER ASSIGN STRING_LITERAL SEMICOLON .)
+    IF              reduce using rule 16 (variable_declaration -> STRING IDENTIFIER ASSIGN STRING_LITERAL SEMICOLON .)
+    FOR             reduce using rule 16 (variable_declaration -> STRING IDENTIFIER ASSIGN STRING_LITERAL SEMICOLON .)
+    WHILE           reduce using rule 16 (variable_declaration -> STRING IDENTIFIER ASSIGN STRING_LITERAL SEMICOLON .)
+    FOREACH         reduce using rule 16 (variable_declaration -> STRING IDENTIFIER ASSIGN STRING_LITERAL SEMICOLON .)
+    TRY             reduce using rule 16 (variable_declaration -> STRING IDENTIFIER ASSIGN STRING_LITERAL SEMICOLON .)
+    IDENTIFIER      reduce using rule 16 (variable_declaration -> STRING IDENTIFIER ASSIGN STRING_LITERAL SEMICOLON .)
+    CONSOLE         reduce using rule 16 (variable_declaration -> STRING IDENTIFIER ASSIGN STRING_LITERAL SEMICOLON .)
+    INT             reduce using rule 16 (variable_declaration -> STRING IDENTIFIER ASSIGN STRING_LITERAL SEMICOLON .)
+    DOUBLE          reduce using rule 16 (variable_declaration -> STRING IDENTIFIER ASSIGN STRING_LITERAL SEMICOLON .)
+    STRING          reduce using rule 16 (variable_declaration -> STRING IDENTIFIER ASSIGN STRING_LITERAL SEMICOLON .)
+    $end            reduce using rule 16 (variable_declaration -> STRING IDENTIFIER ASSIGN STRING_LITERAL SEMICOLON .)
+    RBRACE          reduce using rule 16 (variable_declaration -> STRING IDENTIFIER ASSIGN STRING_LITERAL SEMICOLON .)
+
+
+state 73
+
+    (13) function -> PUBLIC STATIC VOID IDENTIFIER LPAREN RPAREN . LBRACE program RBRACE
+
+    LBRACE          shift and go to state 80
+
+
+state 74
+
+    (17) if_statement -> IF LPAREN IDENTIFIER RPAREN LBRACE program . RBRACE
+
+    RBRACE          shift and go to state 81
+
+
+state 75
+
+    (18) for_loop -> FOR LPAREN assignment SEMICOLON IDENTIFIER SEMICOLON . IDENTIFIER RPAREN LBRACE program RBRACE
+
+    IDENTIFIER      shift and go to state 82
+
+
+state 76
+
+    (19) while_loop -> WHILE LPAREN IDENTIFIER RPAREN LBRACE program . RBRACE
+
+    RBRACE          shift and go to state 83
+
+
+state 77
+
+    (20) foreach_loop -> FOREACH LPAREN IDENTIFIER IDENTIFIER IDENTIFIER RPAREN . LBRACE program RBRACE
+
+    LBRACE          shift and go to state 84
+
+
+state 78
+
+    (21) try_catch -> TRY LBRACE program RBRACE CATCH LBRACE . program RBRACE FINALLY LBRACE program RBRACE
+    (1) program -> . statement program
+    (2) program -> . empty
+    (3) statement -> . CLASS IDENTIFIER LBRACE program RBRACE
+    (4) statement -> . function
+    (5) statement -> . if_statement
+    (6) statement -> . for_loop
+    (7) statement -> . while_loop
+    (8) statement -> . foreach_loop
+    (9) statement -> . try_catch
+    (10) statement -> . assignment
+    (11) statement -> . method_call
+    (12) statement -> . variable_declaration
+    (24) empty -> .
+    (13) function -> . PUBLIC STATIC VOID IDENTIFIER LPAREN RPAREN LBRACE program RBRACE
+    (17) if_statement -> . IF LPAREN IDENTIFIER RPAREN LBRACE program RBRACE
+    (18) for_loop -> . FOR LPAREN assignment SEMICOLON IDENTIFIER SEMICOLON IDENTIFIER RPAREN LBRACE program RBRACE
+    (19) while_loop -> . WHILE LPAREN IDENTIFIER RPAREN LBRACE program RBRACE
+    (20) foreach_loop -> . FOREACH LPAREN IDENTIFIER IDENTIFIER IDENTIFIER RPAREN LBRACE program RBRACE
+    (21) try_catch -> . TRY LBRACE program RBRACE CATCH LBRACE program RBRACE FINALLY LBRACE program RBRACE
+    (22) assignment -> . IDENTIFIER ASSIGN NUMBER SEMICOLON
+    (23) method_call -> . CONSOLE DOT WRITE LPAREN STRING_LITERAL RPAREN SEMICOLON
+    (14) variable_declaration -> . INT IDENTIFIER ASSIGN NUMBER SEMICOLON
+    (15) variable_declaration -> . DOUBLE IDENTIFIER ASSIGN NUMBER SEMICOLON
+    (16) variable_declaration -> . STRING IDENTIFIER ASSIGN STRING_LITERAL SEMICOLON
+
+    CLASS           shift and go to state 4
+    RBRACE          reduce using rule 24 (empty -> .)
+    PUBLIC          shift and go to state 15
+    IF              shift and go to state 16
+    FOR             shift and go to state 17
+    WHILE           shift and go to state 18
+    FOREACH         shift and go to state 19
+    TRY             shift and go to state 20
+    IDENTIFIER      shift and go to state 5
+    CONSOLE         shift and go to state 21
+    INT             shift and go to state 22
+    DOUBLE          shift and go to state 23
+    STRING          shift and go to state 24
+
+    program                        shift and go to state 85
+    statement                      shift and go to state 2
+    empty                          shift and go to state 3
+    function                       shift and go to state 6
+    if_statement                   shift and go to state 7
+    for_loop                       shift and go to state 8
+    while_loop                     shift and go to state 9
+    foreach_loop                   shift and go to state 10
+    try_catch                      shift and go to state 11
+    assignment                     shift and go to state 12
+    method_call                    shift and go to state 13
+    variable_declaration           shift and go to state 14
+
+state 79
+
+    (23) method_call -> CONSOLE DOT WRITE LPAREN STRING_LITERAL RPAREN . SEMICOLON
+
+    SEMICOLON       shift and go to state 86
+
+
+state 80
+
+    (13) function -> PUBLIC STATIC VOID IDENTIFIER LPAREN RPAREN LBRACE . program RBRACE
+    (1) program -> . statement program
+    (2) program -> . empty
+    (3) statement -> . CLASS IDENTIFIER LBRACE program RBRACE
+    (4) statement -> . function
+    (5) statement -> . if_statement
+    (6) statement -> . for_loop
+    (7) statement -> . while_loop
+    (8) statement -> . foreach_loop
+    (9) statement -> . try_catch
+    (10) statement -> . assignment
+    (11) statement -> . method_call
+    (12) statement -> . variable_declaration
+    (24) empty -> .
+    (13) function -> . PUBLIC STATIC VOID IDENTIFIER LPAREN RPAREN LBRACE program RBRACE
+    (17) if_statement -> . IF LPAREN IDENTIFIER RPAREN LBRACE program RBRACE
+    (18) for_loop -> . FOR LPAREN assignment SEMICOLON IDENTIFIER SEMICOLON IDENTIFIER RPAREN LBRACE program RBRACE
+    (19) while_loop -> . WHILE LPAREN IDENTIFIER RPAREN LBRACE program RBRACE
+    (20) foreach_loop -> . FOREACH LPAREN IDENTIFIER IDENTIFIER IDENTIFIER RPAREN LBRACE program RBRACE
+    (21) try_catch -> . TRY LBRACE program RBRACE CATCH LBRACE program RBRACE FINALLY LBRACE program RBRACE
+    (22) assignment -> . IDENTIFIER ASSIGN NUMBER SEMICOLON
+    (23) method_call -> . CONSOLE DOT WRITE LPAREN STRING_LITERAL RPAREN SEMICOLON
+    (14) variable_declaration -> . INT IDENTIFIER ASSIGN NUMBER SEMICOLON
+    (15) variable_declaration -> . DOUBLE IDENTIFIER ASSIGN NUMBER SEMICOLON
+    (16) variable_declaration -> . STRING IDENTIFIER ASSIGN STRING_LITERAL SEMICOLON
+
+    CLASS           shift and go to state 4
+    RBRACE          reduce using rule 24 (empty -> .)
+    PUBLIC          shift and go to state 15
+    IF              shift and go to state 16
+    FOR             shift and go to state 17
+    WHILE           shift and go to state 18
+    FOREACH         shift and go to state 19
+    TRY             shift and go to state 20
+    IDENTIFIER      shift and go to state 5
+    CONSOLE         shift and go to state 21
+    INT             shift and go to state 22
+    DOUBLE          shift and go to state 23
+    STRING          shift and go to state 24
+
+    program                        shift and go to state 87
+    statement                      shift and go to state 2
+    empty                          shift and go to state 3
+    function                       shift and go to state 6
+    if_statement                   shift and go to state 7
+    for_loop                       shift and go to state 8
+    while_loop                     shift and go to state 9
+    foreach_loop                   shift and go to state 10
+    try_catch                      shift and go to state 11
+    assignment                     shift and go to state 12
+    method_call                    shift and go to state 13
+    variable_declaration           shift and go to state 14
+
+state 81
+
+    (17) if_statement -> IF LPAREN IDENTIFIER RPAREN LBRACE program RBRACE .
+
+    CLASS           reduce using rule 17 (if_statement -> IF LPAREN IDENTIFIER RPAREN LBRACE program RBRACE .)
+    PUBLIC          reduce using rule 17 (if_statement -> IF LPAREN IDENTIFIER RPAREN LBRACE program RBRACE .)
+    IF              reduce using rule 17 (if_statement -> IF LPAREN IDENTIFIER RPAREN LBRACE program RBRACE .)
+    FOR             reduce using rule 17 (if_statement -> IF LPAREN IDENTIFIER RPAREN LBRACE program RBRACE .)
+    WHILE           reduce using rule 17 (if_statement -> IF LPAREN IDENTIFIER RPAREN LBRACE program RBRACE .)
+    FOREACH         reduce using rule 17 (if_statement -> IF LPAREN IDENTIFIER RPAREN LBRACE program RBRACE .)
+    TRY             reduce using rule 17 (if_statement -> IF LPAREN IDENTIFIER RPAREN LBRACE program RBRACE .)
+    IDENTIFIER      reduce using rule 17 (if_statement -> IF LPAREN IDENTIFIER RPAREN LBRACE program RBRACE .)
+    CONSOLE         reduce using rule 17 (if_statement -> IF LPAREN IDENTIFIER RPAREN LBRACE program RBRACE .)
+    INT             reduce using rule 17 (if_statement -> IF LPAREN IDENTIFIER RPAREN LBRACE program RBRACE .)
+    DOUBLE          reduce using rule 17 (if_statement -> IF LPAREN IDENTIFIER RPAREN LBRACE program RBRACE .)
+    STRING          reduce using rule 17 (if_statement -> IF LPAREN IDENTIFIER RPAREN LBRACE program RBRACE .)
+    $end            reduce using rule 17 (if_statement -> IF LPAREN IDENTIFIER RPAREN LBRACE program RBRACE .)
+    RBRACE          reduce using rule 17 (if_statement -> IF LPAREN IDENTIFIER RPAREN LBRACE program RBRACE .)
+
+
+state 82
+
+    (18) for_loop -> FOR LPAREN assignment SEMICOLON IDENTIFIER SEMICOLON IDENTIFIER . RPAREN LBRACE program RBRACE
+
+    RPAREN          shift and go to state 88
+
+
+state 83
+
+    (19) while_loop -> WHILE LPAREN IDENTIFIER RPAREN LBRACE program RBRACE .
+
+    CLASS           reduce using rule 19 (while_loop -> WHILE LPAREN IDENTIFIER RPAREN LBRACE program RBRACE .)
+    PUBLIC          reduce using rule 19 (while_loop -> WHILE LPAREN IDENTIFIER RPAREN LBRACE program RBRACE .)
+    IF              reduce using rule 19 (while_loop -> WHILE LPAREN IDENTIFIER RPAREN LBRACE program RBRACE .)
+    FOR             reduce using rule 19 (while_loop -> WHILE LPAREN IDENTIFIER RPAREN LBRACE program RBRACE .)
+    WHILE           reduce using rule 19 (while_loop -> WHILE LPAREN IDENTIFIER RPAREN LBRACE program RBRACE .)
+    FOREACH         reduce using rule 19 (while_loop -> WHILE LPAREN IDENTIFIER RPAREN LBRACE program RBRACE .)
+    TRY             reduce using rule 19 (while_loop -> WHILE LPAREN IDENTIFIER RPAREN LBRACE program RBRACE .)
+    IDENTIFIER      reduce using rule 19 (while_loop -> WHILE LPAREN IDENTIFIER RPAREN LBRACE program RBRACE .)
+    CONSOLE         reduce using rule 19 (while_loop -> WHILE LPAREN IDENTIFIER RPAREN LBRACE program RBRACE .)
+    INT             reduce using rule 19 (while_loop -> WHILE LPAREN IDENTIFIER RPAREN LBRACE program RBRACE .)
+    DOUBLE          reduce using rule 19 (while_loop -> WHILE LPAREN IDENTIFIER RPAREN LBRACE program RBRACE .)
+    STRING          reduce using rule 19 (while_loop -> WHILE LPAREN IDENTIFIER RPAREN LBRACE program RBRACE .)
+    $end            reduce using rule 19 (while_loop -> WHILE LPAREN IDENTIFIER RPAREN LBRACE program RBRACE .)
+    RBRACE          reduce using rule 19 (while_loop -> WHILE LPAREN IDENTIFIER RPAREN LBRACE program RBRACE .)
+
+
+state 84
+
+    (20) foreach_loop -> FOREACH LPAREN IDENTIFIER IDENTIFIER IDENTIFIER RPAREN LBRACE . program RBRACE
+    (1) program -> . statement program
+    (2) program -> . empty
+    (3) statement -> . CLASS IDENTIFIER LBRACE program RBRACE
+    (4) statement -> . function
+    (5) statement -> . if_statement
+    (6) statement -> . for_loop
+    (7) statement -> . while_loop
+    (8) statement -> . foreach_loop
+    (9) statement -> . try_catch
+    (10) statement -> . assignment
+    (11) statement -> . method_call
+    (12) statement -> . variable_declaration
+    (24) empty -> .
+    (13) function -> . PUBLIC STATIC VOID IDENTIFIER LPAREN RPAREN LBRACE program RBRACE
+    (17) if_statement -> . IF LPAREN IDENTIFIER RPAREN LBRACE program RBRACE
+    (18) for_loop -> . FOR LPAREN assignment SEMICOLON IDENTIFIER SEMICOLON IDENTIFIER RPAREN LBRACE program RBRACE
+    (19) while_loop -> . WHILE LPAREN IDENTIFIER RPAREN LBRACE program RBRACE
+    (20) foreach_loop -> . FOREACH LPAREN IDENTIFIER IDENTIFIER IDENTIFIER RPAREN LBRACE program RBRACE
+    (21) try_catch -> . TRY LBRACE program RBRACE CATCH LBRACE program RBRACE FINALLY LBRACE program RBRACE
+    (22) assignment -> . IDENTIFIER ASSIGN NUMBER SEMICOLON
+    (23) method_call -> . CONSOLE DOT WRITE LPAREN STRING_LITERAL RPAREN SEMICOLON
+    (14) variable_declaration -> . INT IDENTIFIER ASSIGN NUMBER SEMICOLON
+    (15) variable_declaration -> . DOUBLE IDENTIFIER ASSIGN NUMBER SEMICOLON
+    (16) variable_declaration -> . STRING IDENTIFIER ASSIGN STRING_LITERAL SEMICOLON
+
+    CLASS           shift and go to state 4
+    RBRACE          reduce using rule 24 (empty -> .)
+    PUBLIC          shift and go to state 15
+    IF              shift and go to state 16
+    FOR             shift and go to state 17
+    WHILE           shift and go to state 18
+    FOREACH         shift and go to state 19
+    TRY             shift and go to state 20
+    IDENTIFIER      shift and go to state 5
+    CONSOLE         shift and go to state 21
+    INT             shift and go to state 22
+    DOUBLE          shift and go to state 23
+    STRING          shift and go to state 24
+
+    program                        shift and go to state 89
+    statement                      shift and go to state 2
+    empty                          shift and go to state 3
+    function                       shift and go to state 6
+    if_statement                   shift and go to state 7
+    for_loop                       shift and go to state 8
+    while_loop                     shift and go to state 9
+    foreach_loop                   shift and go to state 10
+    try_catch                      shift and go to state 11
+    assignment                     shift and go to state 12
+    method_call                    shift and go to state 13
+    variable_declaration           shift and go to state 14
+
+state 85
+
+    (21) try_catch -> TRY LBRACE program RBRACE CATCH LBRACE program . RBRACE FINALLY LBRACE program RBRACE
+
+    RBRACE          shift and go to state 90
+
+
+state 86
+
+    (23) method_call -> CONSOLE DOT WRITE LPAREN STRING_LITERAL RPAREN SEMICOLON .
+
+    CLASS           reduce using rule 23 (method_call -> CONSOLE DOT WRITE LPAREN STRING_LITERAL RPAREN SEMICOLON .)
+    PUBLIC          reduce using rule 23 (method_call -> CONSOLE DOT WRITE LPAREN STRING_LITERAL RPAREN SEMICOLON .)
+    IF              reduce using rule 23 (method_call -> CONSOLE DOT WRITE LPAREN STRING_LITERAL RPAREN SEMICOLON .)
+    FOR             reduce using rule 23 (method_call -> CONSOLE DOT WRITE LPAREN STRING_LITERAL RPAREN SEMICOLON .)
+    WHILE           reduce using rule 23 (method_call -> CONSOLE DOT WRITE LPAREN STRING_LITERAL RPAREN SEMICOLON .)
+    FOREACH         reduce using rule 23 (method_call -> CONSOLE DOT WRITE LPAREN STRING_LITERAL RPAREN SEMICOLON .)
+    TRY             reduce using rule 23 (method_call -> CONSOLE DOT WRITE LPAREN STRING_LITERAL RPAREN SEMICOLON .)
+    IDENTIFIER      reduce using rule 23 (method_call -> CONSOLE DOT WRITE LPAREN STRING_LITERAL RPAREN SEMICOLON .)
+    CONSOLE         reduce using rule 23 (method_call -> CONSOLE DOT WRITE LPAREN STRING_LITERAL RPAREN SEMICOLON .)
+    INT             reduce using rule 23 (method_call -> CONSOLE DOT WRITE LPAREN STRING_LITERAL RPAREN SEMICOLON .)
+    DOUBLE          reduce using rule 23 (method_call -> CONSOLE DOT WRITE LPAREN STRING_LITERAL RPAREN SEMICOLON .)
+    STRING          reduce using rule 23 (method_call -> CONSOLE DOT WRITE LPAREN STRING_LITERAL RPAREN SEMICOLON .)
+    $end            reduce using rule 23 (method_call -> CONSOLE DOT WRITE LPAREN STRING_LITERAL RPAREN SEMICOLON .)
+    RBRACE          reduce using rule 23 (method_call -> CONSOLE DOT WRITE LPAREN STRING_LITERAL RPAREN SEMICOLON .)
+
+
+state 87
+
+    (13) function -> PUBLIC STATIC VOID IDENTIFIER LPAREN RPAREN LBRACE program . RBRACE
+
+    RBRACE          shift and go to state 91
+
+
+state 88
+
+    (18) for_loop -> FOR LPAREN assignment SEMICOLON IDENTIFIER SEMICOLON IDENTIFIER RPAREN . LBRACE program RBRACE
+
+    LBRACE          shift and go to state 92
+
+
+state 89
+
+    (20) foreach_loop -> FOREACH LPAREN IDENTIFIER IDENTIFIER IDENTIFIER RPAREN LBRACE program . RBRACE
+
+    RBRACE          shift and go to state 93
+
+
+state 90
+
+    (21) try_catch -> TRY LBRACE program RBRACE CATCH LBRACE program RBRACE . FINALLY LBRACE program RBRACE
+
+    FINALLY         shift and go to state 94
+
+
+state 91
+
+    (13) function -> PUBLIC STATIC VOID IDENTIFIER LPAREN RPAREN LBRACE program RBRACE .
+
+    CLASS           reduce using rule 13 (function -> PUBLIC STATIC VOID IDENTIFIER LPAREN RPAREN LBRACE program RBRACE .)
+    PUBLIC          reduce using rule 13 (function -> PUBLIC STATIC VOID IDENTIFIER LPAREN RPAREN LBRACE program RBRACE .)
+    IF              reduce using rule 13 (function -> PUBLIC STATIC VOID IDENTIFIER LPAREN RPAREN LBRACE program RBRACE .)
+    FOR             reduce using rule 13 (function -> PUBLIC STATIC VOID IDENTIFIER LPAREN RPAREN LBRACE program RBRACE .)
+    WHILE           reduce using rule 13 (function -> PUBLIC STATIC VOID IDENTIFIER LPAREN RPAREN LBRACE program RBRACE .)
+    FOREACH         reduce using rule 13 (function -> PUBLIC STATIC VOID IDENTIFIER LPAREN RPAREN LBRACE program RBRACE .)
+    TRY             reduce using rule 13 (function -> PUBLIC STATIC VOID IDENTIFIER LPAREN RPAREN LBRACE program RBRACE .)
+    IDENTIFIER      reduce using rule 13 (function -> PUBLIC STATIC VOID IDENTIFIER LPAREN RPAREN LBRACE program RBRACE .)
+    CONSOLE         reduce using rule 13 (function -> PUBLIC STATIC VOID IDENTIFIER LPAREN RPAREN LBRACE program RBRACE .)
+    INT             reduce using rule 13 (function -> PUBLIC STATIC VOID IDENTIFIER LPAREN RPAREN LBRACE program RBRACE .)
+    DOUBLE          reduce using rule 13 (function -> PUBLIC STATIC VOID IDENTIFIER LPAREN RPAREN LBRACE program RBRACE .)
+    STRING          reduce using rule 13 (function -> PUBLIC STATIC VOID IDENTIFIER LPAREN RPAREN LBRACE program RBRACE .)
+    $end            reduce using rule 13 (function -> PUBLIC STATIC VOID IDENTIFIER LPAREN RPAREN LBRACE program RBRACE .)
+    RBRACE          reduce using rule 13 (function -> PUBLIC STATIC VOID IDENTIFIER LPAREN RPAREN LBRACE program RBRACE .)
+
+
+state 92
+
+    (18) for_loop -> FOR LPAREN assignment SEMICOLON IDENTIFIER SEMICOLON IDENTIFIER RPAREN LBRACE . program RBRACE
+    (1) program -> . statement program
+    (2) program -> . empty
+    (3) statement -> . CLASS IDENTIFIER LBRACE program RBRACE
+    (4) statement -> . function
+    (5) statement -> . if_statement
+    (6) statement -> . for_loop
+    (7) statement -> . while_loop
+    (8) statement -> . foreach_loop
+    (9) statement -> . try_catch
+    (10) statement -> . assignment
+    (11) statement -> . method_call
+    (12) statement -> . variable_declaration
+    (24) empty -> .
+    (13) function -> . PUBLIC STATIC VOID IDENTIFIER LPAREN RPAREN LBRACE program RBRACE
+    (17) if_statement -> . IF LPAREN IDENTIFIER RPAREN LBRACE program RBRACE
+    (18) for_loop -> . FOR LPAREN assignment SEMICOLON IDENTIFIER SEMICOLON IDENTIFIER RPAREN LBRACE program RBRACE
+    (19) while_loop -> . WHILE LPAREN IDENTIFIER RPAREN LBRACE program RBRACE
+    (20) foreach_loop -> . FOREACH LPAREN IDENTIFIER IDENTIFIER IDENTIFIER RPAREN LBRACE program RBRACE
+    (21) try_catch -> . TRY LBRACE program RBRACE CATCH LBRACE program RBRACE FINALLY LBRACE program RBRACE
+    (22) assignment -> . IDENTIFIER ASSIGN NUMBER SEMICOLON
+    (23) method_call -> . CONSOLE DOT WRITE LPAREN STRING_LITERAL RPAREN SEMICOLON
+    (14) variable_declaration -> . INT IDENTIFIER ASSIGN NUMBER SEMICOLON
+    (15) variable_declaration -> . DOUBLE IDENTIFIER ASSIGN NUMBER SEMICOLON
+    (16) variable_declaration -> . STRING IDENTIFIER ASSIGN STRING_LITERAL SEMICOLON
+
+    CLASS           shift and go to state 4
+    RBRACE          reduce using rule 24 (empty -> .)
+    PUBLIC          shift and go to state 15
+    IF              shift and go to state 16
+    FOR             shift and go to state 17
+    WHILE           shift and go to state 18
+    FOREACH         shift and go to state 19
+    TRY             shift and go to state 20
+    IDENTIFIER      shift and go to state 5
+    CONSOLE         shift and go to state 21
+    INT             shift and go to state 22
+    DOUBLE          shift and go to state 23
+    STRING          shift and go to state 24
+
+    assignment                     shift and go to state 12
+    program                        shift and go to state 95
+    statement                      shift and go to state 2
+    empty                          shift and go to state 3
+    function                       shift and go to state 6
+    if_statement                   shift and go to state 7
+    for_loop                       shift and go to state 8
+    while_loop                     shift and go to state 9
+    foreach_loop                   shift and go to state 10
+    try_catch                      shift and go to state 11
+    method_call                    shift and go to state 13
+    variable_declaration           shift and go to state 14
+
+state 93
+
+    (20) foreach_loop -> FOREACH LPAREN IDENTIFIER IDENTIFIER IDENTIFIER RPAREN LBRACE program RBRACE .
+
+    CLASS           reduce using rule 20 (foreach_loop -> FOREACH LPAREN IDENTIFIER IDENTIFIER IDENTIFIER RPAREN LBRACE program RBRACE .)
+    PUBLIC          reduce using rule 20 (foreach_loop -> FOREACH LPAREN IDENTIFIER IDENTIFIER IDENTIFIER RPAREN LBRACE program RBRACE .)
+    IF              reduce using rule 20 (foreach_loop -> FOREACH LPAREN IDENTIFIER IDENTIFIER IDENTIFIER RPAREN LBRACE program RBRACE .)
+    FOR             reduce using rule 20 (foreach_loop -> FOREACH LPAREN IDENTIFIER IDENTIFIER IDENTIFIER RPAREN LBRACE program RBRACE .)
+    WHILE           reduce using rule 20 (foreach_loop -> FOREACH LPAREN IDENTIFIER IDENTIFIER IDENTIFIER RPAREN LBRACE program RBRACE .)
+    FOREACH         reduce using rule 20 (foreach_loop -> FOREACH LPAREN IDENTIFIER IDENTIFIER IDENTIFIER RPAREN LBRACE program RBRACE .)
+    TRY             reduce using rule 20 (foreach_loop -> FOREACH LPAREN IDENTIFIER IDENTIFIER IDENTIFIER RPAREN LBRACE program RBRACE .)
+    IDENTIFIER      reduce using rule 20 (foreach_loop -> FOREACH LPAREN IDENTIFIER IDENTIFIER IDENTIFIER RPAREN LBRACE program RBRACE .)
+    CONSOLE         reduce using rule 20 (foreach_loop -> FOREACH LPAREN IDENTIFIER IDENTIFIER IDENTIFIER RPAREN LBRACE program RBRACE .)
+    INT             reduce using rule 20 (foreach_loop -> FOREACH LPAREN IDENTIFIER IDENTIFIER IDENTIFIER RPAREN LBRACE program RBRACE .)
+    DOUBLE          reduce using rule 20 (foreach_loop -> FOREACH LPAREN IDENTIFIER IDENTIFIER IDENTIFIER RPAREN LBRACE program RBRACE .)
+    STRING          reduce using rule 20 (foreach_loop -> FOREACH LPAREN IDENTIFIER IDENTIFIER IDENTIFIER RPAREN LBRACE program RBRACE .)
+    $end            reduce using rule 20 (foreach_loop -> FOREACH LPAREN IDENTIFIER IDENTIFIER IDENTIFIER RPAREN LBRACE program RBRACE .)
+    RBRACE          reduce using rule 20 (foreach_loop -> FOREACH LPAREN IDENTIFIER IDENTIFIER IDENTIFIER RPAREN LBRACE program RBRACE .)
+
+
+state 94
+
+    (21) try_catch -> TRY LBRACE program RBRACE CATCH LBRACE program RBRACE FINALLY . LBRACE program RBRACE
+
+    LBRACE          shift and go to state 96
+
+
+state 95
+
+    (18) for_loop -> FOR LPAREN assignment SEMICOLON IDENTIFIER SEMICOLON IDENTIFIER RPAREN LBRACE program . RBRACE
+
+    RBRACE          shift and go to state 97
+
+
+state 96
+
+    (21) try_catch -> TRY LBRACE program RBRACE CATCH LBRACE program RBRACE FINALLY LBRACE . program RBRACE
+    (1) program -> . statement program
+    (2) program -> . empty
+    (3) statement -> . CLASS IDENTIFIER LBRACE program RBRACE
+    (4) statement -> . function
+    (5) statement -> . if_statement
+    (6) statement -> . for_loop
+    (7) statement -> . while_loop
+    (8) statement -> . foreach_loop
+    (9) statement -> . try_catch
+    (10) statement -> . assignment
+    (11) statement -> . method_call
+    (12) statement -> . variable_declaration
+    (24) empty -> .
+    (13) function -> . PUBLIC STATIC VOID IDENTIFIER LPAREN RPAREN LBRACE program RBRACE
+    (17) if_statement -> . IF LPAREN IDENTIFIER RPAREN LBRACE program RBRACE
+    (18) for_loop -> . FOR LPAREN assignment SEMICOLON IDENTIFIER SEMICOLON IDENTIFIER RPAREN LBRACE program RBRACE
+    (19) while_loop -> . WHILE LPAREN IDENTIFIER RPAREN LBRACE program RBRACE
+    (20) foreach_loop -> . FOREACH LPAREN IDENTIFIER IDENTIFIER IDENTIFIER RPAREN LBRACE program RBRACE
+    (21) try_catch -> . TRY LBRACE program RBRACE CATCH LBRACE program RBRACE FINALLY LBRACE program RBRACE
+    (22) assignment -> . IDENTIFIER ASSIGN NUMBER SEMICOLON
+    (23) method_call -> . CONSOLE DOT WRITE LPAREN STRING_LITERAL RPAREN SEMICOLON
+    (14) variable_declaration -> . INT IDENTIFIER ASSIGN NUMBER SEMICOLON
+    (15) variable_declaration -> . DOUBLE IDENTIFIER ASSIGN NUMBER SEMICOLON
+    (16) variable_declaration -> . STRING IDENTIFIER ASSIGN STRING_LITERAL SEMICOLON
+
+    CLASS           shift and go to state 4
+    RBRACE          reduce using rule 24 (empty -> .)
+    PUBLIC          shift and go to state 15
+    IF              shift and go to state 16
+    FOR             shift and go to state 17
+    WHILE           shift and go to state 18
+    FOREACH         shift and go to state 19
+    TRY             shift and go to state 20
+    IDENTIFIER      shift and go to state 5
+    CONSOLE         shift and go to state 21
+    INT             shift and go to state 22
+    DOUBLE          shift and go to state 23
+    STRING          shift and go to state 24
+
+    program                        shift and go to state 98
+    statement                      shift and go to state 2
+    empty                          shift and go to state 3
+    function                       shift and go to state 6
+    if_statement                   shift and go to state 7
+    for_loop                       shift and go to state 8
+    while_loop                     shift and go to state 9
+    foreach_loop                   shift and go to state 10
+    try_catch                      shift and go to state 11
+    assignment                     shift and go to state 12
+    method_call                    shift and go to state 13
+    variable_declaration           shift and go to state 14
+
+state 97
+
+    (18) for_loop -> FOR LPAREN assignment SEMICOLON IDENTIFIER SEMICOLON IDENTIFIER RPAREN LBRACE program RBRACE .
+
+    CLASS           reduce using rule 18 (for_loop -> FOR LPAREN assignment SEMICOLON IDENTIFIER SEMICOLON IDENTIFIER RPAREN LBRACE program RBRACE .)
+    PUBLIC          reduce using rule 18 (for_loop -> FOR LPAREN assignment SEMICOLON IDENTIFIER SEMICOLON IDENTIFIER RPAREN LBRACE program RBRACE .)
+    IF              reduce using rule 18 (for_loop -> FOR LPAREN assignment SEMICOLON IDENTIFIER SEMICOLON IDENTIFIER RPAREN LBRACE program RBRACE .)
+    FOR             reduce using rule 18 (for_loop -> FOR LPAREN assignment SEMICOLON IDENTIFIER SEMICOLON IDENTIFIER RPAREN LBRACE program RBRACE .)
+    WHILE           reduce using rule 18 (for_loop -> FOR LPAREN assignment SEMICOLON IDENTIFIER SEMICOLON IDENTIFIER RPAREN LBRACE program RBRACE .)
+    FOREACH         reduce using rule 18 (for_loop -> FOR LPAREN assignment SEMICOLON IDENTIFIER SEMICOLON IDENTIFIER RPAREN LBRACE program RBRACE .)
+    TRY             reduce using rule 18 (for_loop -> FOR LPAREN assignment SEMICOLON IDENTIFIER SEMICOLON IDENTIFIER RPAREN LBRACE program RBRACE .)
+    IDENTIFIER      reduce using rule 18 (for_loop -> FOR LPAREN assignment SEMICOLON IDENTIFIER SEMICOLON IDENTIFIER RPAREN LBRACE program RBRACE .)
+    CONSOLE         reduce using rule 18 (for_loop -> FOR LPAREN assignment SEMICOLON IDENTIFIER SEMICOLON IDENTIFIER RPAREN LBRACE program RBRACE .)
+    INT             reduce using rule 18 (for_loop -> FOR LPAREN assignment SEMICOLON IDENTIFIER SEMICOLON IDENTIFIER RPAREN LBRACE program RBRACE .)
+    DOUBLE          reduce using rule 18 (for_loop -> FOR LPAREN assignment SEMICOLON IDENTIFIER SEMICOLON IDENTIFIER RPAREN LBRACE program RBRACE .)
+    STRING          reduce using rule 18 (for_loop -> FOR LPAREN assignment SEMICOLON IDENTIFIER SEMICOLON IDENTIFIER RPAREN LBRACE program RBRACE .)
+    $end            reduce using rule 18 (for_loop -> FOR LPAREN assignment SEMICOLON IDENTIFIER SEMICOLON IDENTIFIER RPAREN LBRACE program RBRACE .)
+    RBRACE          reduce using rule 18 (for_loop -> FOR LPAREN assignment SEMICOLON IDENTIFIER SEMICOLON IDENTIFIER RPAREN LBRACE program RBRACE .)
+
+
+state 98
+
+    (21) try_catch -> TRY LBRACE program RBRACE CATCH LBRACE program RBRACE FINALLY LBRACE program . RBRACE
+
+    RBRACE          shift and go to state 99
+
+
+state 99
+
+    (21) try_catch -> TRY LBRACE program RBRACE CATCH LBRACE program RBRACE FINALLY LBRACE program RBRACE .
+
+    CLASS           reduce using rule 21 (try_catch -> TRY LBRACE program RBRACE CATCH LBRACE program RBRACE FINALLY LBRACE program RBRACE .)
+    PUBLIC          reduce using rule 21 (try_catch -> TRY LBRACE program RBRACE CATCH LBRACE program RBRACE FINALLY LBRACE program RBRACE .)
+    IF              reduce using rule 21 (try_catch -> TRY LBRACE program RBRACE CATCH LBRACE program RBRACE FINALLY LBRACE program RBRACE .)
+    FOR             reduce using rule 21 (try_catch -> TRY LBRACE program RBRACE CATCH LBRACE program RBRACE FINALLY LBRACE program RBRACE .)
+    WHILE           reduce using rule 21 (try_catch -> TRY LBRACE program RBRACE CATCH LBRACE program RBRACE FINALLY LBRACE program RBRACE .)
+    FOREACH         reduce using rule 21 (try_catch -> TRY LBRACE program RBRACE CATCH LBRACE program RBRACE FINALLY LBRACE program RBRACE .)
+    TRY             reduce using rule 21 (try_catch -> TRY LBRACE program RBRACE CATCH LBRACE program RBRACE FINALLY LBRACE program RBRACE .)
+    IDENTIFIER      reduce using rule 21 (try_catch -> TRY LBRACE program RBRACE CATCH LBRACE program RBRACE FINALLY LBRACE program RBRACE .)
+    CONSOLE         reduce using rule 21 (try_catch -> TRY LBRACE program RBRACE CATCH LBRACE program RBRACE FINALLY LBRACE program RBRACE .)
+    INT             reduce using rule 21 (try_catch -> TRY LBRACE program RBRACE CATCH LBRACE program RBRACE FINALLY LBRACE program RBRACE .)
+    DOUBLE          reduce using rule 21 (try_catch -> TRY LBRACE program RBRACE CATCH LBRACE program RBRACE FINALLY LBRACE program RBRACE .)
+    STRING          reduce using rule 21 (try_catch -> TRY LBRACE program RBRACE CATCH LBRACE program RBRACE FINALLY LBRACE program RBRACE .)
+    $end            reduce using rule 21 (try_catch -> TRY LBRACE program RBRACE CATCH LBRACE program RBRACE FINALLY LBRACE program RBRACE .)
+    RBRACE          reduce using rule 21 (try_catch -> TRY LBRACE program RBRACE CATCH LBRACE program RBRACE FINALLY LBRACE program RBRACE .)
+
